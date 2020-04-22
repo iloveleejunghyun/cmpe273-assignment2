@@ -1,0 +1,40 @@
+#1Create a test
+127.0.0.1:5000/api/tests
+
+{
+    "subject": "Math",
+    "answer_keys": {
+        "1": "A",
+        "2": "B",
+        "3": "C",
+        "4": "C",
+        "5": "C",
+        "6": "C",
+        "7": "C",
+        "8": "C",
+        "9": "C",
+        "10": "C"
+    }
+}
+
+#2 Upload a scantron
+http://localhost:5000/api/tests/1/scantrons
+{
+    "name": "Yuan",
+    "format": "json",
+    "scantron": {
+        "1": "A",
+        "2": "B",
+        "3": "C",
+        "4": "C",
+        "5": "C",
+        "6": "C",
+        "7": "C",
+        "8": "C",
+        "9": "C",
+        "10": "C"
+    }
+}
+
+#3 GET http://localhost:5000/api/tests/1
+
