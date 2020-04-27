@@ -20,7 +20,7 @@ def init_db():
     sqliteDB.execute('CREATE TABLE IF NOT EXISTS test (id INTEGER PRIMARY KEY AUTOINCREMENT, subject TEXT, answer_keys TEXT)')
 
     #sqliteDB.execute('DROP TABLE IF exists scantron')
-    sqliteDB.execute('CREATE TABLE IF NOT EXISTS scantron (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, test_id INTEGER, score INTEGER, result TEXT, url TEXT, format TEXT)')
+    sqliteDB.execute('CREATE TABLE IF NOT EXISTS scantron (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, test_id INTEGER, score INTEGER, result TEXT, url TEXT, format TEXT, scantron TEXT)')
 
     print ("Tables created successfully")
 
@@ -37,10 +37,10 @@ def create_test(subject, answer_keys):
     sqliteDB.close()
     return cur_id
 
-def create_scantron(name, test_id, format, url, score, result):
+def create_scantron(name, test_id, format, url, score, result, scantron):
     sqliteDB = sqlite3.connect(DATABASE)
     cur = sqliteDB.cursor()
-    cur.execute("INSERT INTO scantron (name, test_id, score, result, url, format) VALUES (?,?,?,?,?,?)",(name, test_id, score, result, url, format))
+    cur.execute("INSERT INTO scantron (name, test_id, score, result, url, format, scantron) VALUES (?,?,?,?,?,?,?)",(name, test_id, score, result, url, format, scantron))
     sqliteDB.commit()
     cur.execute("SELECT MAX(id) FROM scantron")
     result = cur.fetchone()
@@ -70,7 +70,7 @@ def get_scantrons(test_id):
         cur_scantron = dict()
         cur_scantron['scantron_id'] = s[0]
         cur_scantron['name'] = s[1]
-        subject = get_test(test_id)
+        subject,_ = get_test(test_id)
         cur_scantron['subject'] = subject
         cur_scantron['score'] = s[2]
         cur_scantron['result'] = s[3]
@@ -79,5 +79,15 @@ def get_scantrons(test_id):
     cur.close()
     sqliteDB.close()
     return scantrons
+
+def get_scantron(file_name):
+    sqliteDB = sqlite3.connect(DATABASE)
+    cur = sqliteDB.cursor()
+    cur.execute("SELECT scantron FROM scantron ")
+    res = cur.fetchone()[0]
+    
+    cur.close()
+    sqliteDB.close()
+    return res
 
 init_db()

@@ -1,4 +1,4 @@
-from flask import Flask, escape, request, render_template
+from flask import Flask, escape, request, render_template, Response
 import sqlite3
 import json
 import db
@@ -11,6 +11,7 @@ app = Flask(__name__)
 
 @app.route('/api/tests', methods=['POST'])
 def CreateATest():
+    db.init_db()
     subject = request.json['subject']
     answer_keys = request.json['answer_keys']
     print(type(subject))
@@ -27,13 +28,18 @@ def CreateATest():
 @app.route('/api/tests/<test_id>/scantrons', methods=['POST'])
 def	UploadAScantron(test_id):
     #get json from request
-    name = request.json['name']
-    format = request.json['format']
+    format = 'json'
+    
+    try:
+        name = request.json['name']
+    except:
+        name = "default"
+    
     if format == 'pdf' or format == None:
         format = 'pdf'
         pass
     elif format == 'json':
-        scantron = request.json['scantron']
+        scantron = request.json['answers']
     
     subject, answer_keys = db.get_test(test_id)
     answer_keys = eval(answer_keys)
@@ -44,15 +50,16 @@ def	UploadAScantron(test_id):
             score = score+2
         result[key] = {"actual": scantron[key], "expected": answer_keys[key]}
 
-    result = json.dumps(result, sort_keys=True, indent=4, separators=(',', ':'))
+    result = json.dumps(result, sort_keys=False, indent=4, separators=(',', ':'))
+    scantron = request.get_data()
     print(result, type(result))
     #todo compare result
     
 
     #todo generate url
-    url = "http://localhost:5000/files/1.pdf"
+    url = "http://localhost:5000/files/scantron-1.json"
 
-    id = db.create_scantron(name, test_id, format, url, score, result, )
+    id = db.create_scantron(name, test_id, format, url, score, result, scantron)
 
     return {
         "scantron_id": id, 
@@ -78,3 +85,10 @@ def	checkAllScantronSubmissions(id):
         "answer_keys": answer_keys,
         "submissions": scantrons
     }, 201
+
+
+@app.route('/files/<file_name>', methods=['GET'])
+def	files(file_name):
+    scantron = db.get_scantron(file_name)
+    mimetype = "text/json"
+    return Response(scantron, mimetype=mimetype)

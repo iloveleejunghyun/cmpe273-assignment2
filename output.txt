@@ -1,0 +1,165 @@
+1、Create a test:
+POST http://localhost:5000/api/tests
+
+response:
+{
+  "answer_keys": {
+    "1": "A",
+    "10": "B",
+    "11": "A",
+    "12": "B",
+    "13": "C",
+    "14": "D",
+    "15": "A",
+    "16": "B",
+    "17": "C",
+    "18": "D",
+    "19": "A",
+    "2": "B",
+    "20": "B",
+    "21": "A",
+    "22": "B",
+    "23": "C",
+    "24": "D",
+    "25": "A",
+    "26": "B",
+    "27": "C",
+    "28": "D",
+    "29": "A",
+    "3": "C",
+    "30": "B",
+    "31": "A",
+    "32": "B",
+    "33": "C",
+    "34": "D",
+    "35": "A",
+    "36": "B",
+    "37": "C",
+    "38": "D",
+    "39": "A",
+    "4": "D",
+    "40": "B",
+    "41": "A",
+    "42": "B",
+    "43": "C",
+    "44": "D",
+    "45": "A",
+    "46": "B",
+    "47": "C",
+    "48": "D",
+    "49": "A",
+    "5": "A",
+    "50": "B",
+    "6": "B",
+    "7": "C",
+    "8": "D",
+    "9": "A"
+  },
+  "id": 1,
+  "subject": "Math"
+}
+
+
+
+
+
+
+
+
+
+2、Upload a scantron
+POST http://localhost:5000/api/tests/1/scantrons
+response:
+{
+  "name": "Foo Bar",
+  "result": "{\n    \"1\":{\n        \"actual\":\"B\",\n        \"expected\":\"A\"\n    },\n    \"2\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"3\":{\n        \"actual\":\"C\",\n        \"expected\":\"C\"\n    },\n    \"4\":{\n        \"actual\":\"D\",\n        \"expected\":\"D\"\n    },\n    \"5\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"6\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"7\":{\n        \"actual\":\"C\",\n        \"expected\":\"C\"\n    },\n    \"8\":{\n        \"actual\":\"D\",\n        \"expected\":\"D\"\n    },\n    \"9\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"10\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"11\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"12\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"13\":{\n        \"actual\":\"C\",\n        \"expected\":\"C\"\n    },\n    \"14\":{\n        \"actual\":\"D\",\n        \"expected\":\"D\"\n    },\n    \"15\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"16\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"17\":{\n        \"actual\":\"C\",\n        \"expected\":\"C\"\n    },\n    \"18\":{\n        \"actual\":\"D\",\n        \"expected\":\"D\"\n    },\n    \"19\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"20\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"21\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"22\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"23\":{\n        \"actual\":\"C\",\n        \"expected\":\"C\"\n    },\n    \"24\":{\n        \"actual\":\"D\",\n        \"expected\":\"D\"\n    },\n    \"25\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"26\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"27\":{\n        \"actual\":\"C\",\n        \"expected\":\"C\"\n    },\n    \"28\":{\n        \"actual\":\"D\",\n        \"expected\":\"D\"\n    },\n    \"29\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"30\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"31\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"32\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"33\":{\n        \"actual\":\"C\",\n        \"expected\":\"C\"\n    },\n    \"34\":{\n        \"actual\":\"D\",\n        \"expected\":\"D\"\n    },\n    \"35\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"36\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"37\":{\n        \"actual\":\"C\",\n        \"expected\":\"C\"\n    },\n    \"38\":{\n        \"actual\":\"D\",\n        \"expected\":\"D\"\n    },\n    \"39\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"40\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"41\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"42\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"43\":{\n        \"actual\":\"C\",\n        \"expected\":\"C\"\n    },\n    \"44\":{\n        \"actual\":\"D\",\n        \"expected\":\"D\"\n    },\n    \"45\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"46\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"47\":{\n        \"actual\":\"C\",\n        \"expected\":\"C\"\n    },\n    \"48\":{\n        \"actual\":\"D\",\n        \"expected\":\"D\"\n    },\n    \"49\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"50\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    }\n}",
+  "scantron_id": 1,
+  "scantron_url": "http://localhost:5000/files/scantron-1.json",
+  "score": 98,
+  "subject": "Math"
+}
+
+
+
+
+3、Check all scantron submissions
+GET http://localhost:5000/api/tests/1
+response:
+{
+  "answer_keys": "{'1': 'A', '2': 'B', '3': 'C', '4': 'D', '5': 'A', '6': 'B', '7': 'C', '8': 'D', '9': 'A', '10': 'B', '11': 'A', '12': 'B', '13': 'C', '14': 'D', '15': 'A', '16': 'B', '17': 'C', '18': 'D', '19': 'A', '20': 'B', '21': 'A', '22': 'B', '23': 'C', '24': 'D', '25': 'A', '26': 'B', '27': 'C', '28': 'D', '29': 'A', '30': 'B', '31': 'A', '32': 'B', '33': 'C', '34': 'D', '35': 'A', '36': 'B', '37': 'C', '38': 'D', '39': 'A', '40': 'B', '41': 'A', '42': 'B', '43': 'C', '44': 'D', '45': 'A', '46': 'B', '47': 'C', '48': 'D', '49': 'A', '50': 'B'}",
+  "subject": "Math",
+  "submissions": [
+    {
+      "name": "Foo Bar",
+      "result": "{\n    \"1\":{\n        \"actual\":\"B\",\n        \"expected\":\"A\"\n    },\n    \"2\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"3\":{\n        \"actual\":\"C\",\n        \"expected\":\"C\"\n    },\n    \"4\":{\n        \"actual\":\"D\",\n        \"expected\":\"D\"\n    },\n    \"5\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"6\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"7\":{\n        \"actual\":\"C\",\n        \"expected\":\"C\"\n    },\n    \"8\":{\n        \"actual\":\"D\",\n        \"expected\":\"D\"\n    },\n    \"9\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"10\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"11\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"12\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"13\":{\n        \"actual\":\"C\",\n        \"expected\":\"C\"\n    },\n    \"14\":{\n        \"actual\":\"D\",\n        \"expected\":\"D\"\n    },\n    \"15\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"16\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"17\":{\n        \"actual\":\"C\",\n        \"expected\":\"C\"\n    },\n    \"18\":{\n        \"actual\":\"D\",\n        \"expected\":\"D\"\n    },\n    \"19\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"20\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"21\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"22\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"23\":{\n        \"actual\":\"C\",\n        \"expected\":\"C\"\n    },\n    \"24\":{\n        \"actual\":\"D\",\n        \"expected\":\"D\"\n    },\n    \"25\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"26\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"27\":{\n        \"actual\":\"C\",\n        \"expected\":\"C\"\n    },\n    \"28\":{\n        \"actual\":\"D\",\n        \"expected\":\"D\"\n    },\n    \"29\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"30\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"31\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"32\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"33\":{\n        \"actual\":\"C\",\n        \"expected\":\"C\"\n    },\n    \"34\":{\n        \"actual\":\"D\",\n        \"expected\":\"D\"\n    },\n    \"35\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"36\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"37\":{\n        \"actual\":\"C\",\n        \"expected\":\"C\"\n    },\n    \"38\":{\n        \"actual\":\"D\",\n        \"expected\":\"D\"\n    },\n    \"39\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"40\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"41\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"42\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"43\":{\n        \"actual\":\"C\",\n        \"expected\":\"C\"\n    },\n    \"44\":{\n        \"actual\":\"D\",\n        \"expected\":\"D\"\n    },\n    \"45\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"46\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    },\n    \"47\":{\n        \"actual\":\"C\",\n        \"expected\":\"C\"\n    },\n    \"48\":{\n        \"actual\":\"D\",\n        \"expected\":\"D\"\n    },\n    \"49\":{\n        \"actual\":\"A\",\n        \"expected\":\"A\"\n    },\n    \"50\":{\n        \"actual\":\"B\",\n        \"expected\":\"B\"\n    }\n}",
+      "scantron_id": 1,
+      "scantron_url": "http://localhost:5000/files/scantron-1.json",
+      "score": 98,
+      "subject": "Math"
+    }
+  ],
+  "test_id": "1"
+}
+
+
+
+
+
+4、http://localhost:5000/files/scantron.json
+
+{
+    "name": "Foo Bar",
+    "subject": "Math",
+    "answers": {
+        "1": "B",
+        "2": "B",
+        "3": "C",
+        "4": "D",
+        "5": "A",
+        "6": "B",
+        "7": "C",
+        "8": "D",
+        "9": "A",
+        "10": "B",
+        "11": "A",
+        "12": "B",
+        "13": "C",
+        "14": "D",
+        "15": "A",
+        "16": "B",
+        "17": "C",
+        "18": "D",
+        "19": "A",
+        "20": "B",
+        "21": "A",
+        "22": "B",
+        "23": "C",
+        "24": "D",
+        "25": "A",
+        "26": "B",
+        "27": "C",
+        "28": "D",
+        "29": "A",
+        "30": "B",
+        "31": "A",
+        "32": "B",
+        "33": "C",
+        "34": "D",
+        "35": "A",
+        "36": "B",
+        "37": "C",
+        "38": "D",
+        "39": "A",
+        "40": "B",
+        "41": "A",
+        "42": "B",
+        "43": "C",
+        "44": "D",
+        "45": "A",
+        "46": "B",
+        "47": "C",
+        "48": "D",
+        "49": "A",
+        "50": "B"
+    }
+}
